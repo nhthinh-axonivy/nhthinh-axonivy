@@ -31,11 +31,10 @@ Without the secret the weekly run replaces the real numbers with near-zero and c
 
    The workflow needs no change — it passes `github.repository_owner`, which follows the
    rename automatically.
-4. Replace the email in the hero line with a personal address. The current one
-   (`@axonactive.com`) stops working when the job ends.
-5. Add the LinkedIn link back to the hero line — it was removed rather than shipped as a
-   dead `linkedin.com/in/` URL. Add it as soon as you have the handle; no need to wait.
-6. Re-run the workflow and confirm the numbers survived the rename.
+4. Re-run the workflow and confirm the numbers survived the rename.
+
+Already done: the hero line uses a personal email (`nht.8299@gmail.com`) and the real
+LinkedIn handle, so neither breaks when the job ends.
 
 ## Wording that ages after the job change
 
