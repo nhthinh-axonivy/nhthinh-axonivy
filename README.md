@@ -42,6 +42,7 @@
 _378 merged · 175 reviewed across 6 public repositories outside my own account._
 <!-- OSS:END -->
 
+
 ## Stack
 
 <table>
@@ -53,17 +54,12 @@ _378 merged · 175 reviewed across 6 public repositories outside my own account.
 
 ## Journey
 
-```text
-2022 ── Java / Software Engineering
-         │
-2023 ── Full-stack / Mobile
-         │
-2024 ── Enterprise Software Engineering
-         │
-2025 ── AI / LLM Engineering
-         │
-2026 ── AI + Developer Tools
-```
+<!-- HISTORY:START -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="history-dark.svg">
+  <img alt="Contributions per year, public repositories only. 2022: 5 merged, 0 reviewed; 2023: 44 merged, 19 reviewed; 2024: 97 merged, 41 reviewed; 2025: 144 merged, 36 reviewed; 2026 (to date): 89 merged, 77 reviewed." src="history-light.svg" width="100%">
+</picture>
+<!-- HISTORY:END -->
 
 **Now** — building AI developer tooling and LLM applications in Java, and contributing upstream to the libraries I depend on.
 

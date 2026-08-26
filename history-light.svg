@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="252" viewBox="0 0 760 252" role="img">
+  <style>
+    .card { fill: #fcfcfb; stroke: rgba(11,11,11,0.10); }
+    .t    { font: 600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #52514e; letter-spacing: 1.6px; }
+    .n    { font: 600 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #52514e; text-anchor: middle; }
+    .x    { font: 400 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #52514e; text-anchor: middle; }
+    .lg   { font: 400 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #52514e; }
+    .f    { font: 400 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; fill: #52514e; }
+    .ax   { stroke: #e1e0d9; stroke-width: 1; }
+  </style>
+  <clipPath id="plot"><rect x="0" y="0" width="760" height="202" /></clipPath>
+  <rect class="card" x="0.5" y="0.5" width="759" height="251" rx="10" />
+  <text class="t" x="30" y="40">CONTRIBUTION HISTORY</text>
+  <rect x="542" y="31" width="10" height="10" rx="2" fill="#2a78d6" />
+  <text class="lg" x="558" y="40">Merged</text>
+  <rect x="632" y="31" width="10" height="10" rx="2" fill="#eb6834" />
+  <text class="lg" x="648" y="40">Reviews</text>
+  <line class="ax" x1="36" y1="202" x2="724" y2="202" />
+  
+    <rect x="85.8" y="197.6" width="26" height="10.4" rx="4" fill="#2a78d6" clip-path="url(#plot)" />
+    <text class="n" x="98.8" y="190.6">5</text>
+    <text class="x" x="112.8" y="222">2022</text>
+    <rect x="219.4" y="162.9" width="26" height="45.1" rx="4" fill="#2a78d6" clip-path="url(#plot)" /><rect x="247.4" y="185.1" width="26" height="22.9" rx="4" fill="#eb6834" clip-path="url(#plot)" />
+    <text class="n" x="232.4" y="155.9">44</text><text class="n" x="260.4" y="178.1">19</text>
+    <text class="x" x="246.4" y="222">2023</text>
+    <rect x="353.0" y="115.8" width="26" height="92.2" rx="4" fill="#2a78d6" clip-path="url(#plot)" /><rect x="381.0" y="165.6" width="26" height="42.4" rx="4" fill="#eb6834" clip-path="url(#plot)" />
+    <text class="n" x="366.0" y="108.8">97</text><text class="n" x="394.0" y="158.6">41</text>
+    <text class="x" x="380.0" y="222">2024</text>
+    <rect x="486.6" y="74.0" width="26" height="134.0" rx="4" fill="#2a78d6" clip-path="url(#plot)" /><rect x="514.6" y="170.0" width="26" height="38.0" rx="4" fill="#eb6834" clip-path="url(#plot)" />
+    <text class="n" x="499.6" y="67.0">144</text><text class="n" x="527.6" y="163.0">36</text>
+    <text class="x" x="513.6" y="222">2025</text>
+    <rect x="620.2" y="122.9" width="26" height="85.1" rx="4" fill="#2a78d6" clip-path="url(#plot)" /><rect x="648.2" y="133.6" width="26" height="74.4" rx="4" fill="#eb6834" clip-path="url(#plot)" />
+    <text class="n" x="633.2" y="115.9">89</text><text class="n" x="661.2" y="126.6">77</text>
+    <text class="x" x="647.2" y="222">2026*</text>
+  <text class="f" x="30" y="240">* year to date · public repositories only</text>
+</svg>

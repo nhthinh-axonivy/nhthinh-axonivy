@@ -86,3 +86,79 @@ export const renderCard = (tiles, mode) => {
 </svg>
 `;
 };
+
+/** Categorical slots 1-2. Validated for CVD separation on both surfaces. */
+const SERIES = {
+  light: { merged: '#2a78d6', reviews: '#eb6834' },
+  dark: { merged: '#3987e5', reviews: '#d95926' },
+};
+
+/**
+ * Grouped column chart: merged PRs and reviews per year.
+ *
+ * Every bar is direct-labelled. The usual rule against a number on every mark
+ * assumes a hover tooltip is available; an SVG served through GitHub's image
+ * pipeline has no interaction layer, so the labels ARE the table view.
+ *
+ * @param {{year:string,merged:number,reviews:number,partial:boolean}[]} years
+ * @param {'light'|'dark'} mode
+ */
+export const renderHistory = (years, mode) => {
+  const t = THEMES[mode];
+  const c = SERIES[mode];
+  const w = 760;
+  const h = 252;
+  const base = 202;      // baseline y
+  const top = 74;        // top of plot
+  const padX = 46;
+
+  const max = Math.max(...years.flatMap((y) => [y.merged, y.reviews]));
+  const scale = (v) => (v / max) * (base - top);
+  const band = (w - padX * 2) / years.length;
+  const bw = 26;
+
+  const bar = (x, v, fill) => {
+    if (!v) return '';
+    const bh = scale(v);
+    // Drawn past the baseline and clipped, so only the data-end stays rounded.
+    return `<rect x="${x.toFixed(1)}" y="${(base - bh).toFixed(1)}" width="${bw}" height="${(bh + 6).toFixed(1)}" rx="4" fill="${fill}" clip-path="url(#plot)" />`;
+  };
+
+  const groups = years
+    .map((y, i) => {
+      const cx = padX + band * i + band / 2;
+      // 2px surface gap between the adjacent pair.
+      const xa = cx - bw - 1;
+      const xb = cx + 1;
+      const lbl = (x, v) =>
+        v ? `<text class="n" x="${(x + bw / 2).toFixed(1)}" y="${(base - scale(v) - 7).toFixed(1)}">${v}</text>` : '';
+      return `
+    ${bar(xa, y.merged, c.merged)}${bar(xb, y.reviews, c.reviews)}
+    ${lbl(xa, y.merged)}${lbl(xb, y.reviews)}
+    <text class="x" x="${cx.toFixed(1)}" y="${base + 20}">${esc(y.year)}${y.partial ? '*' : ''}</text>`;
+    })
+    .join('');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img">
+  <style>
+    .card { fill: ${t.surface}; stroke: ${t.border}; }
+    .t    { font: 600 13px ${SANS}; fill: ${t.secondary}; letter-spacing: 1.6px; }
+    .n    { font: 600 11px ${SANS}; fill: ${t.secondary}; text-anchor: middle; }
+    .x    { font: 400 12px ${SANS}; fill: ${t.secondary}; text-anchor: middle; }
+    .lg   { font: 400 12px ${SANS}; fill: ${t.secondary}; }
+    .f    { font: 400 11px ${SANS}; fill: ${t.secondary}; }
+    .ax   { stroke: ${t.rule}; stroke-width: 1; }
+  </style>
+  <clipPath id="plot"><rect x="0" y="0" width="${w}" height="${base}" /></clipPath>
+  <rect class="card" x="0.5" y="0.5" width="${w - 1}" height="${h - 1}" rx="10" />
+  <text class="t" x="30" y="40">CONTRIBUTION HISTORY</text>
+  <rect x="${w - 218}" y="31" width="10" height="10" rx="2" fill="${c.merged}" />
+  <text class="lg" x="${w - 202}" y="40">Merged</text>
+  <rect x="${w - 128}" y="31" width="10" height="10" rx="2" fill="${c.reviews}" />
+  <text class="lg" x="${w - 112}" y="40">Reviews</text>
+  <line class="ax" x1="${padX - 10}" y1="${base}" x2="${w - padX + 10}" y2="${base}" />
+  ${groups}
+  <text class="f" x="30" y="${h - 12}">* year to date · public repositories only</text>
+</svg>
+`;
+};

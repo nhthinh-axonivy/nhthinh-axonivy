@@ -42,23 +42,25 @@ const api = async (path) => {
  * One paginated search per query, grouped locally. A per-repo query loop
  * would burn through the 30 requests/minute search rate limit.
  */
-const searchRepos = async (query) => {
-  const counts = new Map();
+const searchItems = async (query) => {
+  const items = [];
   for (let page = 1; page <= 10; page++) {
-    const { items, total_count } = await api(
+    const { items: page_items, total_count } = await api(
       `search/issues?q=${encodeURIComponent(query)}&per_page=100&page=${page}`
     );
-    for (const item of items) {
-      const full = item.repository_url.replace('https://api.github.com/repos/', '');
-      counts.set(full, (counts.get(full) ?? 0) + 1);
+    for (const item of page_items) {
+      items.push({
+        full: item.repository_url.replace('https://api.github.com/repos/', ''),
+        year: item.closed_at ? item.closed_at.slice(0, 4) : null,
+      });
     }
     // GitHub's search API hard-caps at 1000 results; warn rather than plateau silently.
     if (page === 1 && total_count > 1000) {
       console.log(`WARNING: "${query}" has ${total_count} results; only the first 1000 are countable.`);
     }
-    if (page * 100 >= Math.min(total_count, 1000) || items.length === 0) break;
+    if (page * 100 >= Math.min(total_count, 1000) || page_items.length === 0) break;
   }
-  return counts;
+  return items;
 };
 
 const meta = new Map();
@@ -75,15 +77,24 @@ const describe = async (full) => {
   return meta.get(full);
 };
 
-const merged = await searchRepos(`type:pr author:${USER} is:merged`);
-const reviewed = await searchRepos(`type:pr reviewed-by:${USER}`);
+const mergedItems = await searchItems(`type:pr author:${USER} is:merged`);
+const reviewedItems = await searchItems(`type:pr reviewed-by:${USER}`);
 
 // Drop everything we cannot positively confirm is public.
-const repos = [...new Set([...merged.keys(), ...reviewed.keys()])];
+const repos = [...new Set([...mergedItems, ...reviewedItems].map((i) => i.full))];
 const publicRepos = [];
 for (const full of repos) {
   if ((await describe(full)).public) publicRepos.push(full);
 }
+
+const isPublicRepo = new Set(publicRepos);
+const tally = (items) => {
+  const m = new Map();
+  for (const i of items) if (isPublicRepo.has(i.full)) m.set(i.full, (m.get(i.full) ?? 0) + 1);
+  return m;
+};
+const merged = tally(mergedItems);
+const reviewed = tally(reviewedItems);
 
 const rows = publicRepos
   .map((full) => ({
@@ -114,12 +125,37 @@ const tiles = [
 // The card is an image, so the numbers also live in the alt text -- otherwise
 // they vanish from screen readers, raw Markdown and text search.
 const alt = tiles.map((t) => `${t.value} ${t.label.toLowerCase()}`).join(', ');
-const activity = [
-  '<picture>',
-  '  <source media="(prefers-color-scheme: dark)" srcset="activity-dark.svg">',
-  `  <img alt="Engineering activity: ${alt}." src="activity-light.svg" width="100%">`,
-  '</picture>',
-].join('\n');
+
+const perYear = (items) => {
+  const m = new Map();
+  for (const i of items) if (i.year && isPublicRepo.has(i.full)) m.set(i.year, (m.get(i.year) ?? 0) + 1);
+  return m;
+};
+const my = perYear(mergedItems);
+const ry = perYear(reviewedItems);
+const allYears = [...new Set([...my.keys(), ...ry.keys()])].sort();
+// The newest year in the data is by definition still in progress.
+const latest = allYears[allYears.length - 1];
+const years = allYears.map((year) => ({
+  year,
+  merged: my.get(year) ?? 0,
+  reviews: ry.get(year) ?? 0,
+  partial: year === latest,
+}));
+const histAlt = years
+  .map((y) => `${y.year}${y.partial ? ' (to date)' : ''}: ${y.merged} merged, ${y.reviews} reviewed`)
+  .join('; ');
+
+const picture = (name, altText) =>
+  [
+    '<picture>',
+    `  <source media="(prefers-color-scheme: dark)" srcset="${name}-dark.svg">`,
+    `  <img alt="${altText}" src="${name}-light.svg" width="100%">`,
+    '</picture>',
+  ].join('\n');
+
+const activity = picture('activity', `Engineering activity: ${alt}.`);
+const history = picture('history', `Contributions per year, public repositories only. ${histAlt}.`);
 
 const stars = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n));
 
@@ -150,9 +186,10 @@ const replaceBlock = (text, name, body) => {
 };
 
 const fs = await import('node:fs/promises');
-const { renderCard } = await import('./card.mjs');
+const { renderCard, renderHistory } = await import('./card.mjs');
 let readme = await fs.readFile(README, 'utf8');
 readme = replaceBlock(readme, 'ACTIVITY', activity);
+readme = replaceBlock(readme, 'HISTORY', history);
 readme = replaceBlock(readme, 'OSS', oss);
 
 if (DRY_RUN) {
@@ -161,6 +198,7 @@ if (DRY_RUN) {
   await fs.writeFile(README, readme);
   for (const mode of ['light', 'dark']) {
     await fs.writeFile(new URL(`../activity-${mode}.svg`, import.meta.url), renderCard(tiles, mode));
+    await fs.writeFile(new URL(`../history-${mode}.svg`, import.meta.url), renderHistory(years, mode));
   }
   console.log(`Updated README.md — ${totalMerged} merged, ${totalReviewed} reviewed, ${rows.length} public repos.`);
 }
