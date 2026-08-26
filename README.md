@@ -6,7 +6,7 @@ I build backend systems, AI applications, and developer tools — with a focus o
 
 `Java` · `AI/LLM` · `Backend` · `Developer Tools` · `Open Source`
 
-[GitHub](https://github.com/nhthinh-axonivy) · [LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE) · [CV](https://nhthinh-axonivy.github.io/my-cv/) · [Email](mailto:thinh.nguyenhung@axonactive.com)
+[GitHub](https://github.com/nhthinh-axonivy) · [LinkedIn](https://www.linkedin.com/in/nhthinh8299/) · [CV](https://nhthinh-axonivy.github.io/my-cv/) · [Email](mailto:nht.8299@gmail.com)
 
 ---
 
@@ -21,6 +21,30 @@ merged      reviews     repos
 <!-- ACTIVITY:END -->
 
 <sub>Public repositories only · Recalculated weekly by GitHub Actions.</sub>
+
+---
+
+## Selected Work
+
+What I've actually built, in repositories anyone can read.
+
+### AI guardrails & LLM observability
+
+**[axonivy-market/smart-workflow](https://github.com/axonivy-market/smart-workflow)** · **[langchain4j](https://github.com/langchain4j/langchain4j)**
+
+Prompt-injection and PII guardrails for an LLM workflow engine, plus the observability layer that makes it visible when they fire. Added Ollama and Azure OpenAI as model providers, and OpenSearch as a vector store.
+
+When the guardrail events I needed didn't exist upstream, I added them to LangChain4j itself — [`guardrailName()` on `GuardrailExecutedEvent`](https://github.com/langchain4j/langchain4j/pull/4940) for observability, and [a fix for Azure OpenAI silently falling back to Netty](https://github.com/langchain4j/langchain4j/pull/5355) when a custom HTTP client was configured.
+
+`Java` · `LangChain4j` · `Azure OpenAI` · `Ollama` · `OpenSearch` · `RAG`
+
+### Platform migration & hardening
+
+**[axonivy-market/portal](https://github.com/axonivy-market/portal)**
+
+Migrated a large enterprise workflow portal to **Jakarta EE** and **PrimeFaces 15**. Improved native ARIA heading semantics for accessibility, added missing authorization validation on API endpoints, and rebuilt the performance test suite.
+
+`Java` · `Jakarta EE` · `PrimeFaces` · `JSF` · `Selenide`
 
 ---
 
@@ -58,50 +82,6 @@ _378 merged · 175 reviewed across 6 public repositories outside my own account.
 → **Developer experience & tooling**
 → **VS Code extensions**
 → **Open-source software**
-
----
-
-## Selected Projects
-
-### [Finance Tracker V2](https://github.com/nhthinh-axonivy/Personal-finance)
-
-A personal finance application focused on **financial modeling rather than simple expense tracking**.
-
-Includes a deterministic 0–100 financial health score, weighted financial dimensions, what-if simulations, early-loan-payoff scenarios, baseline projections, multi-currency support, and saved profiles.
-
-`Java` `Spring Boot` `React` `PostgreSQL`
-
-### [BitLife CLI](https://github.com/nhthinh-axonivy/bitlifecli)
-
-A terminal-based life simulator built around **state, decisions, and consequences**.
-
-Features persistent game state, save/load support, career and education systems, relationships, and a pluggable event model.
-
-`Java 17` `Maven`
-
-### [LLM Engineering](https://github.com/nhthinh-axonivy/llm_engineering)
-
-My playground for learning and experimenting with **LLM engineering**, from fundamentals to practical applications.
-
-`Python` `LLMs` `RAG` `AI`
-
-### [LangChain4j](https://github.com/nhthinh-axonivy/langchain4j)
-
-Experiments and work around **LLM integration in the Java ecosystem**, including tool calling and AI application patterns.
-
-`Java` `LangChain4j` `LLM`
-
-### [VS Code Designer](https://github.com/nhthinh-axonivy/vscode-designer)
-
-Exploring **developer tooling and visual development experiences** through VS Code extensions.
-
-`TypeScript` `VS Code`
-
-### [Library Management](https://github.com/nhthinh-axonivy/library-management)
-
-A library management system written from scratch in C, with a focus on understanding lower-level software concepts and build systems.
-
-`C` `CMake`
 
 ---
 
