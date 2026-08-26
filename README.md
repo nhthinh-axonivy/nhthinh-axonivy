@@ -2,11 +2,11 @@
 
 **Software Engineer**
 
-Building backend systems, AI applications, and developer tools.
+I build backend systems, AI applications, and developer tools — with a focus on understanding how things work under the hood.
 
-`Java` · `AI/LLM` · `TypeScript` · `Open Source`
+`Java` · `AI/LLM` · `Backend` · `Developer Tools` · `Open Source`
 
-[GitHub](https://github.com/nhthinh-axonivy) · [LinkedIn](https://www.linkedin.com/in/) · [CV](https://nhthinh-axonivy.github.io/my-cv/) · [Email](mailto:thinh.nguyenhung@axonactive.com)
+[GitHub](https://github.com/nhthinh-axonivy) · [LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE) · [CV](https://nhthinh-axonivy.github.io/my-cv/) · [Email](mailto:thinh.nguyenhung@axonactive.com)
 
 ---
 
@@ -20,13 +20,13 @@ merged      reviews     repos
 ```
 <!-- ACTIVITY:END -->
 
-<sub>Public repositories only. Recalculated weekly by [a GitHub Action](.github/workflows/engineering-activity.yml).</sub>
+<sub>Public repositories only · Recalculated weekly by GitHub Actions.</sub>
 
 ---
 
 ## Open Source
 
-I contribute to software other people run in production.
+I enjoy contributing to existing projects, exploring unfamiliar codebases, and building things that other developers can use.
 
 <!-- OSS:START -->
 **Product engineering — public repos I ship**
@@ -50,66 +50,95 @@ _378 merged · 175 reviewed across 6 public repositories outside my own account.
 
 ---
 
-## What I'm Building
+## What I'm Interested In
 
-→ AI-powered developer tools
-→ LLM applications & RAG
-→ Java backend systems
-→ VS Code tooling
-→ Open-source projects
+→ **AI-powered developer tools**
+→ **LLM applications & RAG**
+→ **Java backend engineering**
+→ **Developer experience & tooling**
+→ **VS Code extensions**
+→ **Open-source software**
 
 ---
 
-## Projects
+## Selected Projects
 
-**[Finance Tracker V2](https://github.com/nhthinh-axonivy/Personal-finance)**
-Personal finance and loan tracker. Deterministic 0–100 financial health score across four
-weighted dimensions, what-if scenario simulation (raises, lump sums, early payoff) charted
-against a baseline projection, multi-currency, saved profiles.
+### [Finance Tracker V2](https://github.com/nhthinh-axonivy/Personal-finance)
+
+A personal finance application focused on **financial modeling rather than simple expense tracking**.
+
+Includes a deterministic 0–100 financial health score, weighted financial dimensions, what-if simulations, early-loan-payoff scenarios, baseline projections, multi-currency support, and saved profiles.
+
 `Java` `Spring Boot` `React` `PostgreSQL`
 
-**[BitLife CLI](https://github.com/nhthinh-axonivy/bitlifecli)**
-Terminal life simulator — choice-driven gameplay with consequence propagation across
-career, education, relationships, and health systems. Save/load persistence and a
-pluggable event model.
+### [BitLife CLI](https://github.com/nhthinh-axonivy/bitlifecli)
+
+A terminal-based life simulator built around **state, decisions, and consequences**.
+
+Features persistent game state, save/load support, career and education systems, relationships, and a pluggable event model.
+
 `Java 17` `Maven`
 
-**[Library Management](https://github.com/nhthinh-axonivy/library-management)**
-Library management system written from scratch in C with a CMake build.
-`C` `CMake`
+### [LLM Engineering](https://github.com/nhthinh-axonivy/llm_engineering)
 
-**[My CV](https://github.com/nhthinh-axonivy/my-cv)**
-Online CV, published with GitHub Pages.
-`HTML`
+My playground for learning and experimenting with **LLM engineering**, from fundamentals to practical applications.
+
+`Python` `LLMs` `RAG` `AI`
+
+### [LangChain4j](https://github.com/nhthinh-axonivy/langchain4j)
+
+Experiments and work around **LLM integration in the Java ecosystem**, including tool calling and AI application patterns.
+
+`Java` `LangChain4j` `LLM`
+
+### [VS Code Designer](https://github.com/nhthinh-axonivy/vscode-designer)
+
+Exploring **developer tooling and visual development experiences** through VS Code extensions.
+
+`TypeScript` `VS Code`
+
+### [Library Management](https://github.com/nhthinh-axonivy/library-management)
+
+A library management system written from scratch in C, with a focus on understanding lower-level software concepts and build systems.
+
+`C` `CMake`
 
 ---
 
 ## Stack
 
 **Backend**
-Java · Spring Boot · PostgreSQL · REST
 
-**AI**
-LLMs · RAG · LangChain4j · Azure OpenAI
+`Java` · `Spring Boot` · `REST` · `PostgreSQL`
 
-**Frontend / Tools**
-TypeScript · React · VS Code · Docker
+**AI / LLM**
+
+`LLMs` · `RAG` · `LangChain4j` · `Azure OpenAI`
+
+**Developer Tools**
+
+`VS Code` · `TypeScript` · `Docker`
 
 **Engineering**
-GitHub Actions · Jenkins · CI/CD
+
+`Git` · `GitHub Actions` · `Jenkins` · `CI/CD`
 
 ---
 
 ## Engineering Journey
 
-```
+```text
 2022 ── Java / Software Engineering
-2023 ── Mobile / Full-stack
-2024 ── Enterprise Software
+         │
+2023 ── Full-stack / Mobile
+         │
+2024 ── Enterprise Software Engineering
+         │
 2025 ── AI / LLM Engineering
+         │
 2026 ── AI + Developer Tools
 ```
 
 ---
 
-<sub>Building things, breaking things, learning how they work.</sub>
+> Building things, breaking things, and learning how they work.

@@ -21,9 +21,6 @@ const README = new URL('../README.md', import.meta.url);
 /** Orgs whose public repos are shipped products rather than community OSS. */
 const PRODUCT_ORGS = new Set(['axonivy', 'axonivy-market']);
 
-/** Repos to leave out of the named breakdown regardless of visibility. */
-const EXCLUDE = new Set();
-
 if (!TOKEN) {
   console.error('GITHUB_TOKEN is required (needs `repo` + `read:org` for cross-repo review search).');
   process.exit(1);
@@ -55,6 +52,10 @@ const searchRepos = async (query) => {
       const full = item.repository_url.replace('https://api.github.com/repos/', '');
       counts.set(full, (counts.get(full) ?? 0) + 1);
     }
+    // GitHub's search API hard-caps at 1000 results; warn rather than plateau silently.
+    if (page === 1 && total_count > 1000) {
+      console.log(`WARNING: "${query}" has ${total_count} results; only the first 1000 are countable.`);
+    }
     if (page * 100 >= Math.min(total_count, 1000) || items.length === 0) break;
   }
   return counts;
@@ -81,7 +82,6 @@ const reviewed = await searchRepos(`type:pr reviewed-by:${USER}`);
 const repos = [...new Set([...merged.keys(), ...reviewed.keys()])];
 const publicRepos = [];
 for (const full of repos) {
-  if (EXCLUDE.has(full)) continue;
   if ((await describe(full)).public) publicRepos.push(full);
 }
 
