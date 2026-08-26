@@ -52,8 +52,6 @@ _378 merged · 175 reviewed across 6 public repositories outside my own account.
 <tr><td><b>Engineering</b></td><td>Git · GitHub Actions · Jenkins · CI/CD</td></tr>
 </table>
 
-## Journey
-
 <!-- HISTORY:START -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="history-dark.svg">
