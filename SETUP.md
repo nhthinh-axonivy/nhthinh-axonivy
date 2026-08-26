@@ -44,9 +44,24 @@ LinkedIn handle, so neither breaks when the job ends.
 - The metrics themselves are safe: the generator counts **public repositories only**, so
   losing org membership does not change any number.
 
+## The activity card
+
+`scripts/card.mjs` renders `activity-light.svg` / `activity-dark.svg`; the README
+references them through a `<picture>` element so GitHub picks the right one for the
+viewer's theme. GitHub rewrites the relative paths (including `srcset`) to
+`/<owner>/<repo>/raw/main/...` when it renders the page, so the card survives the
+username rename with no edit.
+
+Two things to preserve if you touch the card:
+
+- **No timestamp in the SVG.** Anything that changes every run makes the workflow's
+  "commit only if changed" guard fire forever.
+- **No links inside the SVG.** GitHub serves it through its image pipeline, so `<a>`
+  is inert and no webfont loads. That is why the clickable repo table stays Markdown.
+
 ## Local commands
 
 ```bash
 GITHUB_TOKEN=$(gh auth token) node scripts/engineering-activity.mjs --dry-run   # preview
-GITHUB_TOKEN=$(gh auth token) node scripts/engineering-activity.mjs            # write
+GITHUB_TOKEN=$(gh auth token) node scripts/engineering-activity.mjs            # write README + both SVGs
 ```
