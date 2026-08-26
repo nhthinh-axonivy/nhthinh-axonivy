@@ -51,7 +51,9 @@ const searchItems = async (query) => {
     for (const item of page_items) {
       items.push({
         full: item.repository_url.replace('https://api.github.com/repos/', ''),
-        year: item.closed_at ? item.closed_at.slice(0, 4) : null,
+        // Reviewed PRs may still be open; fall back so every item lands in a year
+        // and the bars sum to the headline total.
+        year: (item.closed_at ?? item.created_at)?.slice(0, 4) ?? null,
       });
     }
     // GitHub's search API hard-caps at 1000 results; warn rather than plateau silently.
@@ -124,7 +126,7 @@ const tiles = [
 
 // The card is an image, so the numbers also live in the alt text -- otherwise
 // they vanish from screen readers, raw Markdown and text search.
-const alt = tiles.map((t) => `${t.value} ${t.label.toLowerCase()}`).join(', ');
+const alt = tiles.map((t) => `${t.value} ${t.label}`).join(', ');
 
 const perYear = (items) => {
   const m = new Map();

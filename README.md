@@ -9,7 +9,7 @@
 <!-- ACTIVITY:START -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="activity-dark.svg">
-  <img alt="Engineering activity: 379 prs merged, 175 code reviews, 7 public repos." src="activity-light.svg" width="100%">
+  <img alt="Engineering activity: 379 PRs merged, 175 Code reviews, 7 Public repos." src="activity-light.svg" width="100%">
 </picture>
 <!-- ACTIVITY:END -->
 
@@ -52,10 +52,12 @@ _378 merged · 175 reviewed across 6 public repositories outside my own account.
 <tr><td><b>Engineering</b></td><td>Git · GitHub Actions · Jenkins · CI/CD</td></tr>
 </table>
 
+## Activity Over Time
+
 <!-- HISTORY:START -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="history-dark.svg">
-  <img alt="Contributions per year, public repositories only. 2022: 5 merged, 0 reviewed; 2023: 44 merged, 19 reviewed; 2024: 97 merged, 41 reviewed; 2025: 144 merged, 36 reviewed; 2026 (to date): 89 merged, 77 reviewed." src="history-light.svg" width="100%">
+  <img alt="Contributions per year, public repositories only. 2022: 5 merged, 0 reviewed; 2023: 44 merged, 19 reviewed; 2024: 97 merged, 41 reviewed; 2025: 144 merged, 36 reviewed; 2026 (to date): 89 merged, 79 reviewed." src="history-light.svg" width="100%">
 </picture>
 <!-- HISTORY:END -->
 
