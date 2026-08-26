@@ -13,24 +13,12 @@
 </picture>
 <!-- ACTIVITY:END -->
 
-## Selected Work
+## What I Build
 
-#### AI guardrails & LLM observability
-<sub>[smart-workflow](https://github.com/axonivy-market/smart-workflow) · [langchain4j](https://github.com/langchain4j/langchain4j) — `Java` `LangChain4j` `Azure OpenAI` `Ollama` `OpenSearch` `RAG`</sub>
-
-- **Prompt-injection and PII guardrails** for an LLM workflow engine
-- **Guardrail execution observability** — upstreamed [`guardrailName()` on `GuardrailExecutedEvent`](https://github.com/langchain4j/langchain4j/pull/4940) to LangChain4j
-- **Ollama and Azure OpenAI providers** — including [dropping Azure's silent Netty fallback](https://github.com/langchain4j/langchain4j/pull/5355) upstream
-- **OpenSearch** as a vector store, wired into the dev container
-
-#### Platform migration & hardening
-<sub>[portal](https://github.com/axonivy-market/portal) — `Java` `Jakarta EE` `PrimeFaces` `JSF` `Selenide`</sub>
-
-- **Jakarta EE migration** of a large enterprise workflow portal
-- **PrimeFaces 15 migration** across the same codebase
-- **Accessibility** — native ARIA heading semantics
-- **Security** — missing authorization validation on API endpoints
-- **Rebuilt the performance test suite**
+| Area | Shipped | Stack |
+| :--- | :--- | :--- |
+| **AI guardrails & LLM observability**<br><sub>[smart-workflow](https://github.com/axonivy-market/smart-workflow) · [langchain4j](https://github.com/langchain4j/langchain4j)</sub> | Prompt-injection + PII guardrails · guardrail execution observability · Ollama & Azure OpenAI providers · OpenSearch vector store<br><sub>Upstreamed: [`guardrailName()`](https://github.com/langchain4j/langchain4j/pull/4940) · [Azure Netty fallback](https://github.com/langchain4j/langchain4j/pull/5355)</sub> | `Java` `LangChain4j` `Azure OpenAI` `Ollama` `OpenSearch` |
+| **Platform migration & hardening**<br><sub>[portal](https://github.com/axonivy-market/portal)</sub> | Jakarta EE migration · PrimeFaces 15 migration · native ARIA heading semantics · endpoint authorization validation · rebuilt performance suite | `Java` `Jakarta EE` `PrimeFaces` `JSF` `Selenide` |
 
 ## Open Source
 
