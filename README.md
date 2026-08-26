@@ -15,42 +15,38 @@
 
 ## What I Build
 
-| Area | Shipped | Stack |
-| :--- | :--- | :--- |
-| **AI guardrails & LLM observability**<br><sub>[smart-workflow](https://github.com/axonivy-market/smart-workflow) · [langchain4j](https://github.com/langchain4j/langchain4j)</sub> | Prompt-injection + PII guardrails · guardrail execution observability · Ollama & Azure OpenAI providers · OpenSearch vector store<br><sub>Upstreamed: [`guardrailName()`](https://github.com/langchain4j/langchain4j/pull/4940) · [Azure Netty fallback](https://github.com/langchain4j/langchain4j/pull/5355)</sub> | `Java` `LangChain4j` `Azure OpenAI` `Ollama` `OpenSearch` |
-| **Platform migration & hardening**<br><sub>[portal](https://github.com/axonivy-market/portal)</sub> | Jakarta EE migration · PrimeFaces 15 migration · native ARIA heading semantics · endpoint authorization validation · rebuilt performance suite | `Java` `Jakarta EE` `PrimeFaces` `JSF` `Selenide` |
+```json
+{
+  "ships": {
+    "guardrails": ["prompt-injection", "PII", "observability"],
+    "llm": ["LangChain4j", "Azure OpenAI", "Ollama", "OpenSearch"],
+    "platform": ["Jakarta EE", "PrimeFaces 15", "ARIA", "authorization"]
+  },
+  "stack": {
+    "backend": ["Java", "Spring Boot", "REST", "PostgreSQL"],
+    "frontend": ["TypeScript", "React", "VS Code"],
+    "engineering": ["Docker", "GitHub Actions", "Jenkins", "Selenide"]
+  }
+}
+```
+
+<sub>Upstreamed to LangChain4j: [`guardrailName()` on `GuardrailExecutedEvent`](https://github.com/langchain4j/langchain4j/pull/4940) · [Azure OpenAI Netty fallback](https://github.com/langchain4j/langchain4j/pull/5355)</sub>
 
 ## Open Source
 
 <!-- OSS:START -->
-**Product engineering — public repos I ship**
-
 | Repository | Merged | Reviewed |
 | :--- | ---: | ---: |
-| [axonivy-market/portal](https://github.com/axonivy-market/portal) | 338 | 147 |
-| [axonivy-market/mobileapp](https://github.com/axonivy-market/mobileapp) | 25 | 17 |
-| [axonivy-market/smart-workflow](https://github.com/axonivy-market/smart-workflow) | 11 | 10 |
-| [axonivy-market/ai-assistant](https://github.com/axonivy-market/ai-assistant) | 1 | 0 |
-| [axonivy-market/axonivy-express](https://github.com/axonivy-market/axonivy-express) | 1 | 0 |
+| [portal](https://github.com/axonivy-market/portal) | 338 | 147 |
+| [mobileapp](https://github.com/axonivy-market/mobileapp) | 25 | 17 |
+| [smart-workflow](https://github.com/axonivy-market/smart-workflow) | 11 | 10 |
+| **[langchain4j](https://github.com/langchain4j/langchain4j)** ★13.0k | 2 | 1 |
+| [ai-assistant](https://github.com/axonivy-market/ai-assistant) | 1 | 0 |
+| [axonivy-express](https://github.com/axonivy-market/axonivy-express) | 1 | 0 |
 
-**Community open source**
-
-| Repository | Merged | Reviewed | Stars |
-| :--- | ---: | ---: | ---: |
-| [langchain4j/langchain4j](https://github.com/langchain4j/langchain4j) | 2 | 1 | 13.0k |
-
-_378 merged · 175 reviewed across 6 public repositories outside my own account._
+<sub>378 merged · 175 reviewed across 6 public repos outside my own account. Plain rows are axonivy-market products; **bold** rows are community open source.</sub>
 <!-- OSS:END -->
 
-
-## Stack
-
-<table>
-<tr><td><b>Backend</b></td><td>Java · Spring Boot · REST · PostgreSQL</td></tr>
-<tr><td><b>AI / LLM</b></td><td>LLMs · RAG · LangChain4j · Azure OpenAI</td></tr>
-<tr><td><b>Tools</b></td><td>TypeScript · VS Code · Docker</td></tr>
-<tr><td><b>Engineering</b></td><td>Git · GitHub Actions · Jenkins · CI/CD</td></tr>
-</table>
 
 ## Activity Over Time
 

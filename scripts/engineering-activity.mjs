@@ -161,25 +161,32 @@ const history = picture('history', `Contributions per year, public repositories 
 
 const stars = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n));
 
-const table = (list, withStars = false) =>
+/**
+ * One compact table instead of a tier-per-table split. Repo names drop the org
+ * prefix to save width; community repos are bolded and carry a star count, so
+ * the product/community distinction survives without a repeated "type" column.
+ */
+const table = (list) =>
   [
-    `| Repository | Merged | Reviewed |${withStars ? ' Stars |' : ''}`,
-    `| :--- | ---: | ---: |${withStars ? ' ---: |' : ''}`,
-    ...list.map(
-      (r) =>
-        `| [${r.full}](https://github.com/${r.full}) | ${r.merged} | ${r.reviewed} |` +
-        (withStars ? ` ${stars(r.stars)} |` : '')
-    ),
+    '| Repository | Merged | Reviewed |',
+    '| :--- | ---: | ---: |',
+    ...list.map((r) => {
+      const name = r.full.split('/')[1];
+      const link = `[${name}](https://github.com/${r.full})`;
+      const cell = PRODUCT_ORGS.has(r.owner) ? link : `**${link}** ★${stars(r.stars)}`;
+      return `| ${cell} | ${r.merged} | ${r.reviewed} |`;
+    }),
   ].join('\n');
 
-const section = (title, list, withStars = false) =>
-  list.length ? [`**${title}**`, '', table(list, withStars), ''].join('\n') : '';
-
+const orgList = [...new Set(product.map((r) => r.owner))].join(', ');
 const oss = [
-  section('Product engineering — public repos I ship', product),
-  section('Community open source', community, true),
-  `_${sum(external, 'merged')} merged · ${sum(external, 'reviewed')} reviewed across ${external.length} public repositories outside my own account._`,
-].filter(Boolean).join('\n');
+  table(external),
+  '',
+  `<sub>${sum(external, 'merged')} merged · ${sum(external, 'reviewed')} reviewed across ${external.length} public repos outside my own account.` +
+    (product.length ? ` Plain rows are ${orgList} products;` : '') +
+    (community.length ? ' **bold** rows are community open source.' : '') +
+    '</sub>',
+].join('\n');
 
 const replaceBlock = (text, name, body) => {
   const re = new RegExp(`(<!-- ${name}:START -->)[\\s\\S]*?(<!-- ${name}:END -->)`);
