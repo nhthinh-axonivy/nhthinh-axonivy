@@ -34,7 +34,7 @@ const THEMES = {
   },
 };
 
-const W = 860;
+const W = 760;
 const H = 196;
 const SANS = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
 
@@ -71,10 +71,10 @@ export const renderCard = (tiles, mode) => {
   <style>
     .card  { fill: ${t.surface}; stroke: ${t.border}; }
     .accent{ fill: ${t.accent}; }
-    .t     { font: 600 11px ${SANS}; fill: ${t.secondary}; letter-spacing: 1.6px; }
-    .v     { font: 600 54px ${SANS}; fill: ${t.primary}; text-anchor: middle; }
-    .l     { font: 400 13px ${SANS}; fill: ${t.secondary}; text-anchor: middle; letter-spacing: .3px; }
-    .f     { font: 400 11px ${SANS}; fill: ${t.secondary}; text-anchor: middle; }
+    .t     { font: 600 13px ${SANS}; fill: ${t.secondary}; letter-spacing: 1.6px; }
+    .v     { font: 600 58px ${SANS}; fill: ${t.primary}; text-anchor: middle; }
+    .l     { font: 400 16px ${SANS}; fill: ${t.secondary}; text-anchor: middle; letter-spacing: .3px; }
+    .f     { font: 400 13px ${SANS}; fill: ${t.secondary}; text-anchor: middle; }
     .r     { stroke: ${t.rule}; stroke-width: 1; }
   </style>
   <clipPath id="card"><rect x="0" y="0" width="${W}" height="${H}" rx="10" /></clipPath>

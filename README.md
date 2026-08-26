@@ -56,12 +56,12 @@ _378 merged · 175 reviewed across 6 public repositories outside my own account.
 
 ## Stack
 
-|  |  |
-| :--- | :--- |
-| **Backend** | Java · Spring Boot · REST · PostgreSQL |
-| **AI / LLM** | LLMs · RAG · LangChain4j · Azure OpenAI |
-| **Tools** | TypeScript · VS Code · Docker |
-| **Engineering** | Git · GitHub Actions · Jenkins · CI/CD |
+<table>
+<tr><td><b>Backend</b></td><td>Java · Spring Boot · REST · PostgreSQL</td></tr>
+<tr><td><b>AI / LLM</b></td><td>LLMs · RAG · LangChain4j · Azure OpenAI</td></tr>
+<tr><td><b>Tools</b></td><td>TypeScript · VS Code · Docker</td></tr>
+<tr><td><b>Engineering</b></td><td>Git · GitHub Actions · Jenkins · CI/CD</td></tr>
+</table>
 
 ## Journey
 
