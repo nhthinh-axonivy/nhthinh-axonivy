@@ -21,20 +21,32 @@ Without the secret the weekly run replaces the real numbers with near-zero and c
 
 ## In ~3 weeks — after the job change
 
+`github-profile` (private) is the future home. `nhthinh-axonivy/nhthinh-axonivy`
+(public) is only the interim renderer and gets deleted.
+
 1. Rename the account: **Settings → Account → Change username** → `nhthinh`.
-2. Rename this repo to `nhthinh` (Settings → General). It is already public.
-3. Update the hardcoded URLs:
+2. Delete the interim repo: `gh repo delete nhthinh/nhthinh-axonivy --yes`.
+3. Rename `github-profile` to **`nhthinh`** — *renaming is required, not optional*.
+   A profile README only renders when the repo name equals the username exactly,
+   so a public repo still called `github-profile` renders nothing.
+4. Make it **public** (Settings → General → Danger Zone).
+5. Delete this file — it should not ship on a public profile:
+   `git rm SETUP.md && git commit -m "drop setup notes" && git push`
+6. Update the hardcoded URLs:
 
    ```bash
-   sed -i 's/nhthinh-axonivy/nhthinh/g' README.md scripts/engineering-activity.mjs SETUP.md
+   sed -i 's/nhthinh-axonivy/nhthinh/g' README.md scripts/engineering-activity.mjs
    ```
 
-   The workflow needs no change — it passes `github.repository_owner`, which follows the
-   rename automatically.
-4. Re-run the workflow and confirm the numbers survived the rename.
+   The workflow needs no change — it passes `github.repository_owner`, which follows
+   the rename automatically. The CV link (`nhthinh-axonivy.github.io/my-cv/`) is the
+   one that silently breaks without this, since Pages URLs follow the handle.
+7. Add the secret to the new home and confirm the numbers survive:
 
-Already done: the hero line uses a personal email (`nht.8299@gmail.com`) and the real
-LinkedIn handle, so neither breaks when the job ends.
+   ```bash
+   gh secret set ACTIVITY_TOKEN --repo nhthinh/nhthinh   # PAT: repo + read:org
+   gh workflow run "Engineering Activity" --repo nhthinh/nhthinh
+   ```
 
 ## Wording that ages after the job change
 
