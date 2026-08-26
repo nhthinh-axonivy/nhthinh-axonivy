@@ -44,9 +44,24 @@ LinkedIn handle, so neither breaks when the job ends.
 - The metrics themselves are safe: the generator counts **public repositories only**, so
   losing org membership does not change any number.
 
+## What the Action does and does not touch
+
+Generated (rewritten every run, between markers):
+
+- `ACTIVITY` — the KPI card `<picture>` block
+- `OSS` — the repository table and its caption
+- `HISTORY` — the contribution-history chart block
+- all four SVGs
+
+Hand-written (edit these yourself):
+
+- the hero lines and contact links
+- the `What I Build` JSON block and the upstream-PR line beneath it
+- the closing `Now —` line
+
 ## The activity card
 
-`scripts/card.mjs` renders `activity-light.svg` / `activity-dark.svg`; the README
+`scripts/card.mjs` renders `activity-{light,dark}.svg` and `history-{light,dark}.svg`; the README
 references them through a `<picture>` element so GitHub picks the right one for the
 viewer's theme. GitHub rewrites the relative paths (including `srcset`) to
 `/<owner>/<repo>/raw/main/...` when it renders the page, so the card survives the
