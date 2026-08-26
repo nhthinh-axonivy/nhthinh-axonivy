@@ -13,11 +13,10 @@ I build backend systems, AI applications, and developer tools — with a focus o
 ## Engineering Activity
 
 <!-- ACTIVITY:START -->
-```
-379         175         7
-PRs         Code        Public
-merged      reviews     repos
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="activity-dark.svg">
+  <img alt="Engineering activity: 379 prs merged, 175 code reviews, 7 public repos." src="activity-light.svg" width="100%">
+</picture>
 <!-- ACTIVITY:END -->
 
 <sub>Public repositories only · Recalculated weekly by GitHub Actions.</sub>

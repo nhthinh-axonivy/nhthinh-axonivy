@@ -101,17 +101,24 @@ const product = external.filter((r) => PRODUCT_ORGS.has(r.owner));
 const community = external.filter((r) => !PRODUCT_ORGS.has(r.owner));
 
 const sum = (list, key) => list.reduce((acc, r) => acc + r[key], 0);
-const pad = (n, width) => String(n).padEnd(width);
 
 const totalMerged = sum(rows, 'merged');
 const totalReviewed = sum(rows, 'reviewed');
 
+const tiles = [
+  { value: totalMerged, label: 'PRs merged' },
+  { value: totalReviewed, label: 'Code reviews' },
+  { value: rows.length, label: 'Public repos' },
+];
+
+// The card is an image, so the numbers also live in the alt text -- otherwise
+// they vanish from screen readers, raw Markdown and text search.
+const alt = tiles.map((t) => `${t.value} ${t.label.toLowerCase()}`).join(', ');
 const activity = [
-  '```',
-  `${pad(totalMerged, 12)}${pad(totalReviewed, 12)}${rows.length}`,
-  `${pad('PRs', 12)}${pad('Code', 12)}Public`,
-  `${pad('merged', 12)}${pad('reviews', 12)}repos`,
-  '```',
+  '<picture>',
+  '  <source media="(prefers-color-scheme: dark)" srcset="activity-dark.svg">',
+  `  <img alt="Engineering activity: ${alt}." src="activity-light.svg" width="100%">`,
+  '</picture>',
 ].join('\n');
 
 const stars = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n));
@@ -143,6 +150,7 @@ const replaceBlock = (text, name, body) => {
 };
 
 const fs = await import('node:fs/promises');
+const { renderCard } = await import('./card.mjs');
 let readme = await fs.readFile(README, 'utf8');
 readme = replaceBlock(readme, 'ACTIVITY', activity);
 readme = replaceBlock(readme, 'OSS', oss);
@@ -151,6 +159,9 @@ if (DRY_RUN) {
   console.log(activity + '\n\n' + oss);
 } else {
   await fs.writeFile(README, readme);
+  for (const mode of ['light', 'dark']) {
+    await fs.writeFile(new URL(`../activity-${mode}.svg`, import.meta.url), renderCard(tiles, mode));
+  }
   console.log(`Updated README.md — ${totalMerged} merged, ${totalReviewed} reviewed, ${rows.length} public repos.`);
 }
 
