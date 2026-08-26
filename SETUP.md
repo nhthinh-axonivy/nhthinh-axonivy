@@ -4,12 +4,15 @@ The profile README only renders when the repository name **exactly equals** the 
 username. Until the handle changes, this repo stays under a neutral name and does not
 render anywhere.
 
-## Now — private draft
+## Now — live
+
+The repo is `nhthinh-axonivy/nhthinh-axonivy`, public, so it renders at
+<https://github.com/nhthinh-axonivy> immediately. The name is not a lock-in: renaming a
+repo takes seconds and GitHub redirects the old URL.
 
 ```bash
-gh repo create nhthinh-axonivy/github-profile --private --source=. --remote=origin --push
-gh secret set ACTIVITY_TOKEN --repo nhthinh-axonivy/github-profile   # PAT: repo + read:org
-gh workflow run "Engineering Activity" --repo nhthinh-axonivy/github-profile
+gh secret set ACTIVITY_TOKEN --repo nhthinh-axonivy/nhthinh-axonivy   # PAT: repo + read:org
+gh workflow run "Engineering Activity" --repo nhthinh-axonivy/nhthinh-axonivy
 ```
 
 `ACTIVITY_TOKEN` is **required**, not optional. The default `GITHUB_TOKEN` is scoped to a
@@ -19,8 +22,7 @@ Without the secret the weekly run replaces the real numbers with near-zero and c
 ## In ~3 weeks — after the job change
 
 1. Rename the account: **Settings → Account → Change username** → `nhthinh`.
-2. Rename this repo to `nhthinh` and flip it **public** (a private repo never renders as a
-   profile). Both under Settings → General.
+2. Rename this repo to `nhthinh` (Settings → General). It is already public.
 3. Update the hardcoded URLs:
 
    ```bash
@@ -31,7 +33,8 @@ Without the secret the weekly run replaces the real numbers with near-zero and c
    rename automatically.
 4. Replace the email in the hero line with a personal address. The current one
    (`@axonactive.com`) stops working when the job ends.
-5. Fill in the LinkedIn handle — it is still the placeholder `linkedin.com/in/`.
+5. Add the LinkedIn link back to the hero line — it was removed rather than shipped as a
+   dead `linkedin.com/in/` URL. Add it as soon as you have the handle; no need to wait.
 6. Re-run the workflow and confirm the numbers survived the rename.
 
 ## Wording that ages after the job change
