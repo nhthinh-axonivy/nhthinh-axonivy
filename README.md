@@ -9,7 +9,7 @@
 <!-- ACTIVITY:START -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="activity-dark.svg">
-  <img alt="Engineering activity: 379 PRs merged, 175 Code reviews, 7 Public repos." src="activity-light.svg" width="100%">
+  <img alt="Engineering activity: 380 PRs merged, 175 Code reviews, 7 Public repos." src="activity-light.svg" width="100%">
 </picture>
 <!-- ACTIVITY:END -->
 
@@ -37,14 +37,14 @@
 <!-- OSS:START -->
 | Repository | Merged | Reviewed |
 | :--- | ---: | ---: |
-| [portal](https://github.com/axonivy-market/portal) | 338 | 147 |
+| [portal](https://github.com/axonivy-market/portal) | 339 | 147 |
 | [mobileapp](https://github.com/axonivy-market/mobileapp) | 25 | 17 |
 | [smart-workflow](https://github.com/axonivy-market/smart-workflow) | 11 | 10 |
 | **[langchain4j](https://github.com/langchain4j/langchain4j)** ★13.0k | 2 | 1 |
 | [ai-assistant](https://github.com/axonivy-market/ai-assistant) | 1 | 0 |
 | [axonivy-express](https://github.com/axonivy-market/axonivy-express) | 1 | 0 |
 
-<sub>378 merged · 175 reviewed across 6 public repos outside my own account. Plain rows are axonivy-market products; **bold** rows are community open source.</sub>
+<sub>379 merged · 175 reviewed across 6 public repos outside my own account. Plain rows are axonivy-market products; **bold** rows are community open source.</sub>
 <!-- OSS:END -->
 
 
@@ -53,7 +53,7 @@
 <!-- HISTORY:START -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="history-dark.svg">
-  <img alt="Contributions per year, public repositories only. 2022: 5 merged, 0 reviewed; 2023: 44 merged, 19 reviewed; 2024: 97 merged, 41 reviewed; 2025: 144 merged, 36 reviewed; 2026 (to date): 89 merged, 79 reviewed." src="history-light.svg" width="100%">
+  <img alt="Contributions per year, public repositories only. 2022: 5 merged, 0 reviewed; 2023: 44 merged, 19 reviewed; 2024: 97 merged, 41 reviewed; 2025: 144 merged, 36 reviewed; 2026 (to date): 90 merged, 79 reviewed." src="history-light.svg" width="100%">
 </picture>
 <!-- HISTORY:END -->
 

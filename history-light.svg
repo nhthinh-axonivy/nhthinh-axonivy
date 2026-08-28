@@ -29,8 +29,8 @@
     <rect x="486.6" y="74.0" width="26" height="134.0" rx="4" fill="#2a78d6" clip-path="url(#plot)" /><rect x="514.6" y="170.0" width="26" height="38.0" rx="4" fill="#eb6834" clip-path="url(#plot)" />
     <text class="n" x="499.6" y="67.0">144</text><text class="n" x="527.6" y="163.0">36</text>
     <text class="x" x="513.6" y="222">2025</text>
-    <rect x="620.2" y="122.9" width="26" height="85.1" rx="4" fill="#2a78d6" clip-path="url(#plot)" /><rect x="648.2" y="131.8" width="26" height="76.2" rx="4" fill="#eb6834" clip-path="url(#plot)" />
-    <text class="n" x="633.2" y="115.9">89</text><text class="n" x="661.2" y="124.8">79</text>
+    <rect x="620.2" y="122.0" width="26" height="86.0" rx="4" fill="#2a78d6" clip-path="url(#plot)" /><rect x="648.2" y="131.8" width="26" height="76.2" rx="4" fill="#eb6834" clip-path="url(#plot)" />
+    <text class="n" x="633.2" y="115.0">90</text><text class="n" x="661.2" y="124.8">79</text>
     <text class="x" x="647.2" y="222">2026*</text>
   <text class="f" x="30" y="240">* year to date · public repositories only</text>
 </svg>
