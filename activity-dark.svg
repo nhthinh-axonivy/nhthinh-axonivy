@@ -13,9 +13,9 @@
   <rect class="accent" x="0" y="0" width="760" height="3" clip-path="url(#card)" />
   <text class="t" x="32" y="46">ENGINEERING ACTIVITY</text>
   <line class="r" x1="253.3" y1="72" x2="253.3" y2="158" /><line class="r" x1="506.7" y1="72" x2="506.7" y2="158" />
-    <text class="v" x="126.7" y="126">381</text>
+    <text class="v" x="126.7" y="126">385</text>
     <text class="l" x="126.7" y="152">PRs merged</text>
-    <text class="v" x="380.0" y="126">176</text>
+    <text class="v" x="380.0" y="126">179</text>
     <text class="l" x="380.0" y="152">Code reviews</text>
     <text class="v" x="633.3" y="126">7</text>
     <text class="l" x="633.3" y="152">Public repos</text>
